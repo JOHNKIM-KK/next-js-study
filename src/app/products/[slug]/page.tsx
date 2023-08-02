@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { getProduct, getProducts } from "@/service/products";
+import { notDeepEqual } from "assert";
 
 type Props = {
   params: {
@@ -13,17 +15,19 @@ export function generateMetadata({ params }: Props) {
   };
 }
 
-export default function PantsPage({ params }: Props) {
-  if (params.slug === "noting") {
+export default async function ProductPage({ params: { slug } }: Props) {
+  const product = await getProduct(slug);
+
+  if (!product) {
     notFound();
   }
 
-  return <h1>{params.slug} 페이지</h1>;
+  return <h1>{product.name} 페이지</h1>;
 }
 
-export function generateStaticParams() {
-  const products = ["pants", "skirt"];
+export async function generateStaticParams() {
+  const products = await getProducts();
   return products.map((product) => ({
-    slug: product,
+    slug: product.id,
   }));
 }

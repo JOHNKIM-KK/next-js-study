@@ -6,6 +6,7 @@ import MeowArticle from "@/components/MeowArticle";
 
 export default async function ProductsPage() {
   const products = await getProducts();
+  throw new Error();
 
   return (
     <>

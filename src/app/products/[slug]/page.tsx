@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
 import { getProduct, getProducts } from "@/service/products";
-import { notDeepEqual } from "assert";
+
+export const revalidate = 3;
 
 type Props = {
   params: {

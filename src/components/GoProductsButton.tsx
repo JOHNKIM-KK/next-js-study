@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 
-export default async function GoProductsButton() {
+export default function GoProductsButton() {
   const router = useRouter();
   return (
     <button

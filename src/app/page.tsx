@@ -7,7 +7,7 @@ export default function Home() {
   console.log("mj : os", os.hostname());
   return (
     <>
-      <h1>home page!</h1>
+      <h1>home page! CI/CD 버전 3 </h1>
       <Counter />
       <Image
         src="https://images.unsplash.com/photo-1441986300917-64674bd600d8"
